@@ -4,48 +4,40 @@
 //
 //---------------------------
 
-$size-collection: ('sm', 'md', 'lg', 'xl');
+$size-collection: ('xs', 'sm', 'md', 'lg', 'xl');
 
 @each $size in $size-collection {
   .-show-#{$size}-up {
     display: none;
-    @if $size == sm {
-      @include susy-breakpoint($media-sm) {
-        display: block;
-      }
-    } @else if $size == md {
-      @include susy-breakpoint($media-md) {
-        display: block;
-      }
-    } @else if $size == lg {
-      @include susy-breakpoint($media-lg) {
-        display: block;
-      }
-    } @else if $size == xl {
-      @include susy-breakpoint($media-xl) {
-        display: block;
-      }
-    }
+    @if $size == sm {@include susy-media($media-sm-up) { display: block; }}
+    @else if $size == md {@include susy-media($media-md-up) { display: block; }}
+    @else if $size == lg {@include susy-media($media-lg-up) { display: block; }}
+    @else if $size == xl {@include susy-media($media-xl) { display: block; }}
+  }
+
+  .-show-only-#{$size} {
+    display: none;
+    @if $size == xs {@include susy-media($media-xs) { display: block; }}
+    @else if $size == sm {@include susy-media($media-sm) { display: block; }}
+    @else if $size == md {@include susy-media($media-md) { display: block; }}
+    @else if $size == lg {@include susy-media($media-lg) { display: block; }}
+    @else if $size == xl {@include susy-media($media-xl) { display: block; }}
   }
 
   .-hide-#{$size}-up {
     display: block;
-    @if $size == sm {
-      @include susy-breakpoint($media-sm) {
-        display: none;
-      }
-    } @else if $size == md {
-      @include susy-breakpoint($media-md) {
-        display: none;
-      }
-    } @else if $size == lg {
-      @include susy-breakpoint($media-lg) {
-        display: none;
-      }
-    } @else if $size == xl {
-      @include susy-breakpoint($media-xl) {
-        display: none;
-      }
-    }
+    @if $size == sm {@include susy-media($media-sm-up) { display: none; }}
+    @else if $size == md {@include susy-media($media-md-up) { display: none; }}
+    @else if $size == lg {@include susy-media($media-lg-up) { display: none; }}
+    @else if $size == xl {@include susy-media($media-xl) { display: none; }}
+  }
+
+  .-hide-only-#{$size} {
+    display: block;
+    @if $size == xs {@include susy-media($media-xs) { display: none; }}
+    @else if $size == sm {@include susy-media($media-sm) { display: none; }}
+    @else if $size == md {@include susy-media($media-md) { display: none; }}
+    @else if $size == lg {@include susy-media($media-lg) { display: none; }}
+    @else if $size == xl {@include susy-media($media-xl) { display: none; }}
   }
 }

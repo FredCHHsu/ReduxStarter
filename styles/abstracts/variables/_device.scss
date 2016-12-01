@@ -2,51 +2,46 @@
 //
 // SUSY Media Query Breakpoints
 //
+// build style from bottom up
+// the breakpoint selection concept
+// https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.k2hv7xpfd
+//
 //-----------------------------------
 
-// build style from bottom up
-$media-xs: (
-  max-width: 320px,
+$breakpoint-xs-sm: 600px;
+$breakpoint-sm-md: 900px;
+$breakpoint-md-lg: 1200px;
+$breakpoint-lg-xl: 1800px;
+
+$media-xs: (  // mobile
+  max-width: $breakpoint-xs-sm - 1px,
 );
 
-$media-sm: (
-  min-width: 321px,
+$media-sm: ( // tablet-portrait
+  min-width: $breakpoint-xs-sm,
+  max-width: $breakpoint-sm-md - 1px,
 );
 
-$media-md: (
-  min-width: 768px,
+$media-md: ( // tablet-landscape
+  min-width: $breakpoint-sm-md,
+  max-width: $breakpoint-md-lg - 1px,
 );
 
-$media-lg: (
-  min-width: 992px,
+$media-lg: ( // desktop
+  min-width: $breakpoint-md-lg,
+  max-width: $breakpoint-lg-xl - 1px,
 );
 
-$media-xl: (
-  min-width: 1280px,
+$media-xl: ( // large desktop
+  min-width: $breakpoint-lg-xl,
 );
 
-$media-xxl: (
-  min-width: 1440px,
-);
+// media range
+// ==========================================
+$media-sm-up: ( min-width: $breakpoint-xs-sm );
+$media-md-up: ( min-width: $breakpoint-sm-md );
+$media-lg-up: ( min-width: $breakpoint-md-lg );
 
-
-// height related
-$media-height-xs: (
-  max-height: 480px,
-);
-
-$media-height-sm: (
-  min-height: 481px,
-);
-
-$media-height-md: (
-  min-height: 667px,
-);
-
-$media-height-lg: (
-  min-height: 720px,
-);
-
-$media-height-xl: (
-  min-height: 1081px,
-);
+$media-sm-down: ( max-width: $breakpoint-sm-md - 1px );
+$media-md-down: ( max-width: $breakpoint-md-lg - 1px );
+$media-lg-down: ( max-width: $breakpoint-lg-xl - 1px );
