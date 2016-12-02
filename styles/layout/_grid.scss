@@ -4,14 +4,17 @@
 //
 //---------------------------
 
-.container { // constrain max-width of content
+$max-container-width: 1440px;
+
+.container,
+%container { // constrain max-width of content
   @include container; // susy provided
-  max-width: 1080px;
+  max-width: $max-container-width;
 }
 
 $size-collection: ('xs', 'sm', 'md', 'lg', 'xl');
 $total-columns: 12;
-$column-padding: 0.5em;
+$column-padding: 12px;
 
 @each $size in $size-collection {
   @for $i from 1 to $total-columns {
