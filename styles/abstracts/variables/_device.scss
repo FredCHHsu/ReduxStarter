@@ -38,6 +38,7 @@ $media-xl: ( // large desktop
 
 // media range
 // ==========================================
+$media-xs-up: ( min-width: 0 );
 $media-sm-up: ( min-width: $breakpoint-xs-sm );
 $media-md-up: ( min-width: $breakpoint-sm-md );
 $media-lg-up: ( min-width: $breakpoint-md-lg );

@@ -21,7 +21,7 @@ $column-padding: 12px;
     .col-#{$size}-#{$i} {
       padding: $column-padding;
       @if $size == xs {
-        @include susy-media($media-xs) {
+        @include susy-media($media-xs-up) {
           @include span($i)
         }
       } @else if $size == sm {
