@@ -4,13 +4,13 @@ import { Router, browserHistory } from 'react-router';
 
 import routes from './routes';
 
-const App = (props) =>
+const AppWrapper = (props) =>
   <Provider store={props.store}>
     <Router history={browserHistory} routes={routes} />
   </Provider>;
 
-App.propTypes = {
+AppWrapper.propTypes = {
   store: PropTypes.object,
 };
 
-export default App;
+export default AppWrapper;
