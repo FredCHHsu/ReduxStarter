@@ -6,7 +6,8 @@
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors && gulp build"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
