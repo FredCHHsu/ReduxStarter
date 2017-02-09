@@ -8,14 +8,13 @@ Jest for Test.
 
 ### Getting Start ###
 ```
-  > npm install
-  > npm start
+  > yarn start
 ```
 
 ### Using Hot Module Replacement for Javascript Development ###
 Auto refresh browser after change is OK, but HMR is still some problem.
 ```
-  > npm run dev
+  > yarn dev
   then go http://localhost:8080
 ```
 
@@ -27,12 +26,12 @@ Auto refresh browser after change is OK, but HMR is still some problem.
 
 ### Test ###
 ```
-  > npm t
+  > yarn test
 ```
 
 ### We Could Use Hot-Dev-Server and BrowserSync on the Same Time ###
 ```
-  > npm run dev-server
+  > yarn dev
   > command + T (open new window of terminal with same folder)
   > gulp
   it would automatically open http://localhost:3000 in default browser
@@ -40,6 +39,5 @@ Auto refresh browser after change is OK, but HMR is still some problem.
 
 ### Deploy: Remember to Compile Production ###
 ```
-  > webpack
-  > gulp production
+  > yarn build
 ```

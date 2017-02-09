@@ -90,6 +90,14 @@ gulp.task('pages', () => {
     .pipe($.if(watch, stream()));
 });
 
+// Assets
+// ===========================================
+gulp.task('assets', () => {
+  src.assets = 'assets/**/*';
+  return gulp.src(src.assets)
+    .pipe(gulp.dest(DEST));
+});
+
 // Compile SASS
 // ===========================================
 const preSASSProcessors = [
@@ -172,14 +180,14 @@ gulp.task('sass-production', () =>
 // ===========================================
 gulp.task('build', (cb) => {
   // runSequence(['pages', 'before-sass', 'sass', 'bundle'], cb);
-  runSequence(['pages', 'sass-production'], cb);
+  runSequence(['pages', 'assets', 'sass-production'], cb);
 });
 
 // Launch a lightweight HTTP Server
 // ===========================================
 gulp.task('serve', (cb) => {
   watch = true;
-  runSequence('build', () => {
+  runSequence(['pages', 'assets', 'sass'], () => {
     browserSync({
       notify: true,
       // Run as an https by uncommenting 'https: true'
