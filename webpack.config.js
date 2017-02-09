@@ -10,36 +10,37 @@ module.exports = {
     publicPath: '/js', // relative to contentBase
     filename: 'bundle.js',
   },
-  devtool: 'source-map',
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
+        enforce: 'pre',
         loader: 'eslint-loader',
-        configFile: './.eslintrc',
         exclude: /node_modules/,
+        query: {
+          configFile: './.eslintrc',
+        },
       },
-    ],
-    loaders: [
       {
         test: /\.js$/,
-        loaders: [
-          'babel',
-        ],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
+      { test: /\.csv$/, loader: 'dsv-loader' },
     ],
   },
-  eslint: {
-    failOnError: false,
-    failOnWarning: false,
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-  },
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify('production'),
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          failOnError: false,
+          failOnWarning: false,
+        },
+      },
     }),
   ],
   devServer: {
