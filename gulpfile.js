@@ -187,7 +187,7 @@ gulp.task('build', (cb) => {
 // ===========================================
 gulp.task('serve', (cb) => {
   watch = true;
-  runSequence(['pages', 'assets', 'sass'], () => {
+  runSequence(['pages', 'assets', 'before-sass', 'sass'], () => {
     browserSync({
       notify: true,
       // Run as an https by uncommenting 'https: true'
