@@ -22,6 +22,7 @@ const plugins = isProduction ?
       },
     },
   }),
+  new webpack.HotModuleReplacementPlugin(), // Enable HMR
 ];
 
 module.exports = {
@@ -56,6 +57,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   plugins,
   devServer: {
+    hot: true,
     historyApiFallback: true,
     contentBase: './public',
   },
