@@ -1,43 +1,39 @@
 # Front-End Starter
 
-React, Redux, React-Router, ESLint via Webpack and
+React, Redux, React-Router, ESLint via Webpack,
 
-SASS, PostCSS, BrowserSync via Gulp.
+SASS, PostCSS, BrowserSync via Gulp, and
 
 Jest for Test.
 
-### Getting Start ###
+### Quick Start
 ```
   > yarn start
 ```
 
-### Using Hot Module Replacement for Javascript Development ###
-Auto refresh browser after change is OK, but HMR is still some problem.
-```
-  > yarn dev
-  then go http://localhost:8080
-```
-
-### Using BrowserSync for Style Development ###
-```
-  > gulp
-  then go http://localhost:3000
-```
-
-### Test ###
+### Test
 ```
   > yarn test
 ```
 
-### We Could Use Hot-Dev-Server and BrowserSync on the Same Time ###
+## Develop Flow
+
+### 1. Using Hot Module Replacement for Javascript Development
+Auto refresh browser after change saved.
 ```
   > yarn dev
-  > command + T (open new window of terminal with same folder)
-  > gulp
-  it would automatically open http://localhost:3000 in default browser
 ```
+Webpack dev-server serve at http://localhost:8080
 
-### Deploy: Remember to Compile Production ###
+### 2. Using BrowserSync for Style Development
+```
+  > gulp
+```
+it would automatically open http://localhost:3000 in default browser
+
+
+## Deploy
+Remember to Compile Production
 ```
   > yarn build
 ```
