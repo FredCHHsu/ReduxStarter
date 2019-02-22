@@ -1,5 +1,5 @@
 {
-  "name": "FrontEnd_Starter",
+  "name": "front_end_starter",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "node ./node_modules/.bin/webpack-dev-server --define process.env.NODE_ENV='\"dev\"'",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "build": "webpack -p --progress --colors && gulp build"
+    "build": "webpack --config webpack.config.prod.js --progress --colors && gulp build"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -61,6 +61,6 @@
     "react-redux": "^6.0.0",
     "react-router": "3.2.1",
     "redux": "^4.0.1",
-    "redux-promise": "^0.5.3"
+    "redux-saga": "^1.0.1"
   }
 }

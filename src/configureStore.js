@@ -1,7 +1,8 @@
 /* eslint global-require: 0*/
 import { createStore, applyMiddleware, compose } from 'redux';
-import promise from 'redux-promise';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
+import rootSaga from './sagas';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
@@ -13,12 +14,14 @@ const composeEnhancers =
     }) : compose;
 /* eslint-enable no-underscore-dangle */
 
+const sagaMiddleware = createSagaMiddleware();
 const enhancer = composeEnhancers(
-  applyMiddleware(promise)
+  applyMiddleware(sagaMiddleware)
 );
 
 export default function configuredStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
+  sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
