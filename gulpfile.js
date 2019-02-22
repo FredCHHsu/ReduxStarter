@@ -39,6 +39,7 @@ const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence'); // Run a series of dependent Gulp tasks in order
 const browserSync = require('browser-sync');
 const argv = require('minimist')(process.argv.slice(2));
+const packageJson = require('./package.json');
 
 // require webpack
 // ===========================================
@@ -62,13 +63,11 @@ const cssnano = require('cssnano');
 const webpackDevServerUrl = 'http://localhost:8080/'; // equal to webpack entry
 const DEST = './public';
 const RELEASE = !!argv.release;
-const AUTOPREFIXER_BROWSERS = [
-  '> 5%',
-  'last 2 version',
-];
+const AUTOPREFIXER_BROWSERS = packageJson.browserslist;
+
 const src = {};
 let watch = false;
-const reload = browserSync.reload;
+// const reload = browserSync.reload;
 const stream = browserSync.stream;
 
 
