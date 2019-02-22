@@ -2,17 +2,26 @@ const webpack = require('webpack');
 
 const plugins = [
   new webpack.DefinePlugin({
-    NODE_ENV: JSON.stringify('production'),
+    'process.env.NODE_ENV': JSON.stringify('production'),
   }),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      eslint: {
-        failOnError: false,
-        failOnWarning: false,
-      },
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+      screw_ie8: true,
+      conditionals: true,
+      unused: true,
+      comparisons: true,
+      sequences: true,
+      dead_code: true,
+      evaluate: true,
+      if_return: true,
+      join_vars: true,
+    },
+    output: {
+      comments: false,
     },
   }),
-  new webpack.HotModuleReplacementPlugin(), // Enable HMR
+  new webpack.optimize.ModuleConcatenationPlugin(),
 ];
 
 module.exports = {
@@ -45,7 +54,7 @@ module.exports = {
       { test: /\.csv$/, loader: 'dsv-loader' },
     ],
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   plugins,
   devServer: {
     hot: true,
