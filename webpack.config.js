@@ -17,7 +17,7 @@ const plugins = [
 
 module.exports = {
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     'react-hot-loader/patch',
     './src/index.js',
   ],
