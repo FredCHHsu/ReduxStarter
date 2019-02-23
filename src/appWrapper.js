@@ -5,13 +5,18 @@ import { Router, browserHistory } from 'react-router';
 
 import routes from './routes';
 
-const AppWrapper = (props) =>
-  <Provider store={props.store}>
+const AppWrapper = ({ store }) => (
+  <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
-  </Provider>;
+  </Provider>
+);
 
 AppWrapper.propTypes = {
-  store: PropTypes.object,
+  store: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+};
+
+AppWrapper.defaultProps = {
+  store: {},
 };
 
 export default AppWrapper;

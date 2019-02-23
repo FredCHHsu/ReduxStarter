@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const App = (props) =>
+const App = ({ children }) => (
   <div id="app">
     <h2>Header</h2>
-    {props.children}
+    {children}
     <h2>Footer</h2>
-  </div>;
+  </div>
+);
 
 App.propTypes = {
   children: PropTypes.element.isRequired,
