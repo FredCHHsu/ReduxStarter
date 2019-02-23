@@ -52,4 +52,9 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './public',
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
 };
