@@ -5,9 +5,9 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 9,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
+      "jsx": true
     }
   },
   "rules": {
