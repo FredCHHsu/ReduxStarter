@@ -3,8 +3,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/.bin/webpack-dev-server",
-    "dev": "node ./node_modules/.bin/webpack-dev-server --define process.env.NODE_ENV='\"dev\"'",
+    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "build": "webpack --config webpack.config.prod.js --progress --colors && gulp build"
@@ -70,8 +70,9 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.13.0",
     "susy": "2.2.14",
-    "webpack": "^3",
-    "webpack-dev-server": "^2.5.0"
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.11",
